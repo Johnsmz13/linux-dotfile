@@ -1,0 +1,18 @@
+# Auto-indent new lines
+set autoindent
+
+# Don't wrap long lines
+set nowrap
+
+# Tab size
+set tabsize 4
+
+# Convert tabs to spaces
+set tabstospaces
+
+# Enable soft wrapping
+set softwrap
+
+# Set zero shell
+set nohelp
+# set zero
