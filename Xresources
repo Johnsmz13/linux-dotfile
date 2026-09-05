@@ -1,0 +1,50 @@
+! -------------------------------------------------
+! URxvt Configuration File
+! -------------------------------------------------
+
+! 1. Dark Mode (Using Catppuccin Mocha color scheme)
+URxvt.background: #1e1e2e
+URxvt.foreground: #cdd6f4
+URxvt.cursorColor: #f5e0dc
+URxvt.cursorColor2: #1e1e2e
+
+! Standard 16 ANSI colors
+URxvt.color0:  #45475a
+URxvt.color1:  #f38ba8
+URxvt.color2:  #a6e3a1
+URxvt.color3:  #f9e2af
+URxvt.color4:  #89b4fa
+URxvt.color5:  #f5c2e7
+URxvt.color6:  #94e2d5
+URxvt.color7:  #bac2de
+URxvt.color8:  #585b70
+URxvt.color9:  #f38ba8
+URxvt.color10: #a6e3a1
+URxvt.color11: #f9e2af
+URxvt.color12: #89b4fa
+URxvt.color13: #f5c2e7
+URxvt.color14: #94e2d5
+URxvt.color15: #a6adc8
+
+! 2. Better Font (Monospace with CJK fallback for Chinese)
+! Uses a clean English font with Noto CJK as a fallback for perfect Chinese rendering
+URxvt.font: xft:Fira Code:size=10
+URxvt.boldFont: xft:Fira Code:bold:size=10
+URxvt.letterSpace: 0
+URxvt.lineSpace: 2
+
+! 3. Disable Scroll Bar
+URxvt.scrollBar: false
+URxvt.scrollBar_right: false
+URxvt.scrollBar_floating: false
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+
+
+URxvt.perl-ext-common: default,selection-to-clipboard
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
+URxvt.keysym.C-M-c:    builtin-string:
+URxvt.keysym.C-M-v:    builtin-string:
+URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+URxvt.keysym.C-S-0x56: eval:paste_clipboard

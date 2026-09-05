@@ -1,13 +1,15 @@
 CC      ?= cc
 CFLAGS  ?= -O2 -Wall -Wextra -Wpedantic
+LDFLAGS ?=
+LIBS    ?= -lxbps
 PREFIX  ?= /usr/sbin
 
 all: build
 
 build: dnf
 
-dnf: dnf.c
-	$(CC) $(CFLAGS) -o $@ dnf.c
+dnf: dnf.c xbps_backend.c xbps_backend.h
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ dnf.c xbps_backend.c $(LIBS)
 
 test: dnf
 	./test.sh

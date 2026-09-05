@@ -1,0 +1,44 @@
+# ~/.config/i3status/config
+
+general {
+    colors = true
+    interval = 5
+    separator = " | "
+    
+    color_good = "#a3be8c"
+    color_degraded = "#ebcb8b"
+    color_bad = "#bf616a"
+}
+
+# Order of modules in the status bar
+order += "volume master"
+order += "wireless _first_"
+order += "battery 0"
+order += "tztime local"
+
+# Volume indicator
+volume master {
+    format = "Vol %volume"
+    format_muted = "Vol off"
+    # Use "pulse" for PulseAudio/PipeWire, or "default" for raw ALSA
+    device = "pulse" 
+}
+
+# Wireless network
+wireless _first_ {
+    format_up = "WiFi %essid (%quality)"
+    format_down = "WiFi down"
+}
+
+# Battery status (Integer percentage only, no status icons)
+battery 0 {
+    format = "Bat %percentage"
+    format_percentage = "%.00f%s"
+    low_threshold = 20
+    threshold_type = "percentage"
+}
+
+# Local time and date (No day of the week)
+tztime local {
+    format = "%d %b %H:%M"
+}
