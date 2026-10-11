@@ -1,0 +1,41 @@
+[window]
+decorations = "None"
+padding = { x = 6, y = 6 }
+
+[font]
+size = 12.0
+
+[font.normal]
+family = "Fira Code"
+style = "Regular"
+
+# Default colors
+[colors.primary]
+background = '#080808'
+foreground = '#ffffff'
+
+[colors.cursor]
+text = '#dc38ce'
+cursor = '#ffffff'
+
+# Normal colors
+[colors.normal]
+black   = '#000000'
+red     = '#d92626'
+green   = '#4ad926'
+yellow  = '#d9d926'
+blue    = '#266ed9'
+magenta = '#b526d9'
+cyan    = '#26d9d9'
+white   = '#d0d0d0'
+
+# Bright colors
+[colors.bright]
+black   = '#808080'
+red     = '#d92626'
+green   = '#4ad926'
+yellow  = '#d9d926'
+blue    = '#266ed9'
+magenta = '#b526d9'
+cyan    = '#26d9d9'
+white   = '#ffffff'
