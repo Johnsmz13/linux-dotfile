@@ -1,0 +1,208 @@
+# dbar - Minimal Laptop / Catppuccin Mocha
+[bar]
+height = 32
+position = "top"
+margin = 7
+gap = 7
+font = "JetBrainsMono Nerd Font 12"
+icon_size = 16
+
+[colors]
+base = "#11111b"
+surface = "#1e1e2e"
+raised = "#313244"
+line = "#45475a"
+text = "#cdd6f4"
+subtext = "#a6adc8"
+green = "#a6e3a1"
+aqua = "#94e2d5"
+blue = "#89b4fa"
+warning = "#f9e2af"
+critical = "#f38ba8"
+
+[left]
+groups = ["desktop"]
+[center]
+groups = ["window"]
+[right]
+groups = ["system", "connectivity", "power", "time"]
+
+[style.plain]
+foreground = "$text"
+padding = 7
+icon_gap = 4
+[style.tile]
+background = "$surface"
+foreground = "$text"
+padding = 7
+icon_gap = 4
+[style.tile_alt]
+background = "$raised"
+foreground = "$text"
+padding = 7
+icon_gap = 4
+[style.warning]
+background = "$warning"
+foreground = "$base"
+padding = 7
+icon_gap = 4
+[style.critical]
+background = "$critical"
+foreground = "$base"
+padding = 7
+icon_gap = 4
+[style.focused]
+background = "#cba6f7"
+foreground = "$base"
+padding = 9
+radius = 9
+[style.visible]
+background = "$raised"
+foreground = "$text"
+padding = 9
+radius = 9
+[style.dim]
+foreground = "$subtext"
+padding = 9
+[style.hovered]
+background = "$line"
+foreground = "$text"
+
+[group.desktop]
+modules = ["workspaces"]
+background = "$surface"
+opacity = 0.94
+radius = 11
+padding = 3
+spacing = 3
+[group.window]
+modules = ["title"]
+background = "$surface"
+opacity = 0.92
+radius = 11
+[group.system]
+modules = ["cpu", "memory"]
+background = "$surface"
+opacity = 0.92
+radius = 11
+collapsible = true
+collapse_button = "right"
+collapse_animation = "180ms"
+[group.system.collapsed]
+style = "tile"
+icon = "$cpu"
+[group.connectivity]
+modules = ["network"]
+background = "$surface"
+opacity = 0.92
+radius = 11
+[group.power]
+modules = ["volume", "brightness", "battery"]
+background = "$surface"
+opacity = 0.92
+radius = 11
+[group.time]
+modules = ["clock"]
+background = "$raised"
+opacity = 0.96
+radius = 11
+
+[module.workspaces]
+source = "workspaces"
+style = "dim"
+min_width = 27
+[module.workspaces.states.focused]
+focused = true
+style = "focused"
+[module.workspaces.states.visible]
+visible = true
+style = "visible"
+[module.workspaces.states.urgent]
+urgent = true
+style = "critical"
+radius = 9
+
+[module.title]
+source = "window"
+style = "plain"
+max_width = 260
+
+[module.cpu]
+source = "cpu"
+interval = "3s"
+format = "$utilization.n(d:0)"
+style = "tile"
+icon = "$cpu"
+[module.cpu.states.busy]
+above = 85
+style = "warning"
+[module.memory]
+source = "memory"
+interval = "5s"
+format = "$percent.n(d:0)"
+format_alt = "$used.n(d:1) of $total.n(d:0)"
+style = "tile_alt"
+icon = "$memory"
+[module.memory.states.full]
+above = 90
+style = "warning"
+
+[module.network]
+source = "network"
+interval = "5s"
+format = "$ssid|$device"
+format_alt = "$down{  $up}"
+style = "plain"
+icon = "$wifi"
+[module.network.states.offline]
+field = "state"
+equals = "down"
+icon = "$wifi-off"
+
+[module.volume]
+source = "audio"
+scroll = "5%"
+format = "$volume.n(d:0)"
+style = "plain"
+icon = "$volume"
+[module.volume.states.muted]
+field = "muted"
+equals = "yes"
+foreground = "$subtext"
+icon = "$volume-muted"
+[module.volume.states.port]
+field = "port"
+equals = "headphones"
+icon = "$headphones"
+
+[module.brightness]
+source = "backlight"
+scroll = "5%"
+format = "$brightness.n(d:0)"
+style = "plain"
+icon = "$brightness"
+
+[module.battery]
+source = "battery"
+interval = "30s"
+format = "$percent.n(d:0)"
+format_alt = "$percent.n(d:0){  $time.dur(style:short) left}"
+style = "plain"
+icon = "$battery"
+[module.battery.states.plugged]
+field = "supply"
+equals = "mains"
+icon = "$battery-charging"
+[module.battery.states.warning]
+state = "warning"
+style = "warning"
+[module.battery.states.critical]
+state = "critical"
+style = "critical"
+
+[module.clock]
+source = "time"
+interval = "1m"
+format = "$now.time(f:'%a %d %b  %H:%M')"
+style = "plain"
+foreground = "#cba6f7"
