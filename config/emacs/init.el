@@ -14,6 +14,7 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq create-lockfiles nil)
+(global-font-lock-mode 0)
 
 (defun my-save-or-kill-buffer ()
   (interactive)
